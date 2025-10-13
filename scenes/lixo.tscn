@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpdrrewki8idu"]
+
+[ext_resource type="Texture2D" uid="uid://ol8tjvljqg8" path="res://assets/copo sprite.png" id="1_co70i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bnrr"]
+size = Vector2(237, 454)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_co70i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 63)
+shape = SubResource("RectangleShape2D_1bnrr")

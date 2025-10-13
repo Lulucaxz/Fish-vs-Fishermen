@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0m3n8t1m664f"]
+
+[ext_resource type="Script" uid="uid://c3b7jhiaf1t3o" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://bsn2lnixs6tbv" path="res://assets/Icones_HUD/card-algas.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://5316g7jyqarr" path="res://assets/Icones_HUD/card-cavalo.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://cmbutf2775o5k" path="res://assets/icon_oxigenio.png" id="4_6fi6k"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_oo0fn")
+
+[node name="Control" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -483.0
+offset_top = -623.0
+offset_right = -250.0
+offset_bottom = -591.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+z_index = 5
+layout_mode = 0
+offset_left = 19.964966
+offset_right = 137.21497
+offset_bottom = 23.936659
+rotation = 1.5707964
+scale = Vector2(4.5, 4.5)
+
+[node name="BtnPlanta1" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta1"]
+position = Vector2(6.6666675, 9.54777)
+rotation = -1.5707964
+scale = Vector2(0.03624196, 0.036241964)
+texture = ExtResource("2_oo0fn")
+
+[node name="BtnPlanta2" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta2"]
+position = Vector2(6, 9.325562)
+rotation = 4.712389
+scale = Vector2(0.036634624, 0.036634628)
+texture = ExtResource("3_5ysmq")
+
+[node name="BtnPlanta3" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="BtnPlanta4" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="BtnPlanta5" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="BtnPlanta6" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="OxygenLabel" type="Label" parent="."]
+z_index = 7
+offset_left = 60.0
+offset_top = 18.0
+offset_right = 114.0
+offset_bottom = 41.0
+text = "0"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="OxygenLabel"]
+z_index = -1
+position = Vector2(18.999985, 11.9999695)
+scale = Vector2(0.28133333, 0.28133333)
+texture = ExtResource("4_6fi6k")
+offset = Vector2(-20, 0)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://hbrhi1l1knb3"]
+
+[ext_resource type="Script" uid="uid://3akno55lt5l2" path="res://scripts/cavalo.gd" id="1_qn4w6"]
+[ext_resource type="PackedScene" uid="uid://dv5c4wco83osg" path="res://scenes/bolha.tscn" id="2_cvx1q"]
+[ext_resource type="Texture2D" uid="uid://btk03mv312w4o" path="res://assets/cavalo-marinho.png" id="3_cvx1q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o14br"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cvx1q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvx1q"]
+size = Vector2(18.07143, 20)
+
+[node name="Cavalo" type="Node2D"]
+script = ExtResource("1_qn4w6")
+CenaBolha = ExtResource("2_cvx1q")
+
+[node name="TimerAtaque" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.1920929e-07, -2)
+scale = Vector2(0.04752703, 0.04491103)
+sprite_frames = SubResource("SpriteFrames_o14br")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.32499996, -4.7683716e-07)
+scale = Vector2(0.6999999, 0.6999999)
+shape = SubResource("RectangleShape2D_cvx1q")
+
+[connection signal="timeout" from="TimerAtaque" to="." method="_on_timer_ataque_timeout"]

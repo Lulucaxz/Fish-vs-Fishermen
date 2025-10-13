@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv5c4wco83osg"]
+
+[ext_resource type="Script" uid="uid://3bn04pepfx77" path="res://scripts/bolha.gd" id="1_w04f3"]
+[ext_resource type="Texture2D" uid="uid://bq4i3u6brrhmi" path="res://assets/bolha.png" id="2_w04f3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mfu1"]
+radius = 57.07889
+
+[node name="Bolha" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_w04f3")
+velocidade = 100
+dano = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.014999997, 0.014999996)
+texture = ExtResource("2_w04f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.536743e-07, 2.3841858e-07)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("CircleShape2D_8mfu1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
