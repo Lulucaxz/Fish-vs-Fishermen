@@ -1,3 +1,45 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# Arquivos e pastas temporárias
+.import/
+export.cfg
+export_presets.cfg
+
+# Cache e arquivos gerados automaticamente
+*.import
+*.translation
+*.tscn.tmp
+*.godot.tmp
+*.cfg~
+*.tmp
+*.log
+*.old
+*.bak
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos do editor
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+
+# Builds e exports
+bin/
+build/
+exports/
+dist/
+*.exe
+*.apk
+*.pck
+*.zip
+*.tar.gz
+
+# Configurações locais (não compartilhar)
+.editor_config/
+.project_metadata/
+
