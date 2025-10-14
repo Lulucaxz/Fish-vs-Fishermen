@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7x7mb4k6ufl"]
+
+[ext_resource type="Script" uid="uid://espfwkp1qp3h" path="res://cenas/credits_video.gd" id="1_lw6ms"]
+[ext_resource type="VideoStream" uid="uid://b2575abggotph" path="res://assets/videos/credits.ogv" id="1_su3nc"]
+[ext_resource type="AudioStream" uid="uid://hn3thm0kc571" path="res://sounds/SNCT-MUSICAIRRITANTEDOSCREDITOS.wav" id="2_oaikg"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lw6ms")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 155.0
+offset_top = 87.0
+offset_right = 1003.0
+offset_bottom = 565.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("1_su3nc")
+autoplay = true
+loop = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 325)
+zoom = Vector2(1.4, 1.4)
+
+[node name="credit_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oaikg")
+volume_db = -12.0
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = 507.0
+offset_right = 267.0
+offset_bottom = 538.0
+grow_vertical = 0
+text = "RETORNAR"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

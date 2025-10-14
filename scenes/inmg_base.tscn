@@ -116,7 +116,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha7je"]
-size = Vector2(177.77777, 256)
+size = Vector2(120, 206.66666)
 
 [node name="InmgBase" type="CharacterBody2D"]
 collision_layer = 2
@@ -130,6 +130,6 @@ frame_progress = 0.22116491
 speed_scale = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.3333335, 0)
+position = Vector2(-2.3841858e-07, 3.5)
 scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_ha7je")

@@ -1,0 +1,169 @@
+[gd_scene load_steps=25 format=3 uid="uid://c2qmvdgt5cnm4"]
+
+[ext_resource type="Script" uid="uid://t52t1u2255ou" path="res://scripts/inmg_garrafa.gd" id="1_os8dg"]
+[ext_resource type="Texture2D" uid="uid://bmta7qyxhjfb0" path="res://assets/sprite-ataque-garrafa.png" id="2_0fiqu"]
+[ext_resource type="Texture2D" uid="uid://dvmk4qjg721y2" path="res://assets/sprite-garrafa.png" id="3_t1knf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43sov"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(294, 267, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdygc"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(882, 801, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcxt4"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(588, 267, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw1iv"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(0, 534, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7phg"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(294, 534, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrrti"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(588, 534, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqcy1"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(882, 534, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drfmh"]
+atlas = ExtResource("2_0fiqu")
+region = Rect2(0, 801, 294, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_464nq"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulq5b"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr5y5"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoieg"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_727q4"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_244kl"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(1024, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btan8"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(1536, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw8oo"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(0, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d3lc"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(512, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwtyk"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(1024, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c31w"]
+atlas = ExtResource("3_t1knf")
+region = Rect2(1536, 1536, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chlxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43sov")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_cdygc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcxt4")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_yw1iv")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_s7phg")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_wrrti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqcy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drfmh")
+}],
+"loop": true,
+"name": &"garrafa_attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_464nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulq5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr5y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoieg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_727q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_244kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btan8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw8oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d3lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwtyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c31w")
+}],
+"loop": true,
+"name": &"garrafa_walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uph72"]
+size = Vector2(14, 35)
+
+[node name="InmgGarrafa" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_os8dg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.17, 0.17)
+sprite_frames = SubResource("SpriteFrames_chlxc")
+animation = &"garrafa_attack"
+frame_progress = 0.6735574
+speed_scale = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3.5)
+shape = SubResource("RectangleShape2D_uph72")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://5fo5oyycob4v"]
+
+[ext_resource type="Texture2D" uid="uid://ceafpvva75vsj" path="res://assets/baiacu.png" id="1_8cb4n"]
+[ext_resource type="Script" uid="uid://dsv525rq3q3d2" path="res://scripts/baiacu.gd" id="1_vltjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vltjs"]
+
+[node name="Baiacu" type="CharacterBody2D"]
+script = ExtResource("1_vltjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.047, 0.047)
+texture = ExtResource("1_8cb4n")
+
+[node name="baiacuColisao" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baiacuColisao"]
+shape = SubResource("RectangleShape2D_vltjs")
+
+[connection signal="body_entered" from="baiacuColisao" to="." method="_on_baiacu_colisao_body_entered"]

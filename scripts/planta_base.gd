@@ -1,13 +1,10 @@
-# /scripts/planta_base.gd 
-# Este script AGORA é a sua Alga Geradora de Oxigênio.
-
 extends CharacterBody2D
 
 # --- PROPRIEDADES DE CONFIGURAÇÃO (APARECEM NO INSPECTOR) ---
-@export var custo: int = 50       # Custo em O₂ para colocar a Alga
+@export var custo: int = 25       # Custo em O₂ para colocar a Alga
 @export var vida: int = 75       
-@export var recarga: float = 8.0  # Tempo entre as gerações de Oxigênio
-@export var oxygen_amount: int = 25 # Quantidade de O₂ gerada por ciclo
+@export var recarga: float = 5.0  # Tempo entre as gerações de Oxigênio
+@export var oxygen_amount: float = 12.5 # Quantidade de O₂ gerada por ciclo
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mapa = get_tree().get_root().find_child("Mapa1", true, false)
@@ -49,7 +46,15 @@ func atacar():
 
 # --- LÓGICA DE DANO (MANTIDA) ---
 func tomar_dano(dano):
+	
 	vida -= dano
+	
+	modulate = Color(1.0, 0.266, 0.277, 1.0) 
+		 
+	await get_tree().create_timer(0.3).timeout 
+		
+	modulate = Color(1, 1 , 1)
+	
 	if vida <= 0:
 		morrer()
 			

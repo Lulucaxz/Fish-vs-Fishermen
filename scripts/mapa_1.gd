@@ -1,31 +1,50 @@
 extends Node2D
 
-@export var waveLimit: int = 5
+@export var waveLimit: int = 10
+@export var tempo_total: float = 150.0
 
 @onready var tilemap_layer: TileMapLayer = $TileMap/TileMapLayer
+@onready var hud = get_tree().get_root().find_child("HUD", true, false)
+
 @onready var inimigos_scene: Array[PackedScene] = [
 	load("res://scenes/inmg_base.tscn"),
-	load("res://scenes/inmg_isopor.tscn")
+	load("res://scenes/inmg_isopor.tscn"),
+	load("res://scenes/inmg_canudo.tscn"),
+	load("res://scenes/inmg_garrafa.tscn"),
+	load("res://scenes/inmg_barril.tscn")
 ]
 
 @onready var spawnTime = $SpawnTime
+@onready var waveTime = $WaveTime
+@onready var gameTime = $GameTime
+	
+var jogo_ativo: bool = true
 var planta_selecionada_id: int = -1
 
 # Dicionário com os caminhos das plantas
 var plantas_paths := {
 	1: "res://scenes/algas.tscn",
-	2: "res://scenes/cavalo.tscn"
+	2: "res://scenes/cavalo.tscn",
+	3: "res://scenes/ourico.tscn",
+	4: "res://scenes/tartaruga.tscn",
+	5: "res://scenes/brigao.tscn",
+	6: "res://scenes/baiacu.tscn"
+	
 }
 
 var plantas: Array = []
 var cavalos: Array = []
+var baiacus: Array = []
+var ouricos: Array = []
+var brigoes: Array = []
+var tartarugas: Array = []
 
 var inmgPos_linha: int = 6
-var inmgLimit: int = waveLimit
+var inmgPos_col: int = 16
+var waveAtiva: bool = false
 
 func _ready() -> void:
-	# Tenta localizar o HUD em qualquer lugar da árvore de cena
-	var hud = get_tree().get_root().find_child("HUD", true, false)
+	# Tenta localizar o HUD em qualquer lugar da árvore de cena	
 	if hud:
 		hud.planta_selecionada.connect(_on_planta_selecionada)
 		# Inicializa o display de O₂ na HUD com o saldo atual
@@ -33,7 +52,9 @@ func _ready() -> void:
 		print("HUD encontrado e conectado!")
 	else:
 		push_warning("HUD não encontrado! Verifique o nome do nó HUD na cena principal.")
-	spawnTime.start()
+	waveTime.start()
+	gameTime.wait_time = tempo_total
+	gameTime.start()
 
 func _on_planta_selecionada(planta_id: int) -> void:
 	planta_selecionada_id = planta_id
@@ -48,7 +69,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var cell: Vector2i = tilemap_layer.local_to_map(mouse_pos)
 		var world_pos: Vector2 = tilemap_layer.map_to_local(cell)
 		
-		if cell.x < 2 or cell.y < 0 or cell.x > 16 or cell.y > 6:
+		if cell.x < 2 or cell.y < 0 or cell.x > 16 or cell.y > 5:
 			print("Célula clicada:", cell)
 			print("Fora do mapa")
 			return
@@ -95,13 +116,28 @@ func _unhandled_input(event: InputEvent) -> void:
 			'node': planta
 		}
 		
-		if planta_selecionada_id == 4: # Cavalo-Marinho
+		if planta_selecionada_id == 2: 
 			cavalos.append(planta_data)
-		else: # Alga ou outra planta genérica
+		elif planta_selecionada_id == 3:
+			ouricos.append(planta_data)
+		elif planta_selecionada_id == 4:
+			tartarugas.append(planta_data)
+		elif planta_selecionada_id == 5:
+			brigoes.append(planta_data)
+		elif planta_selecionada_id == 6:
+			baiacus.append(planta_data)
+		else: 
 			plantas.append(planta_data)
 		
 		planta_selecionada_id = -1  # Limpa a seleção
 
+func _on_wave_time_timeout() -> void:
+	unlocked_wave()
+	
+func unlocked_wave():
+	waveAtiva = true
+	
+	spawnTime.start()
 
 func _on_spawn_time_timeout() -> void:
 	spawn()
@@ -111,8 +147,9 @@ func spawn():
 		return
 	
 	var inmgLinha = randi() % inmgPos_linha 
+	var inmgCol = (randi() % inmgPos_col) + 16
 	
-	var celulaInmg = Vector2i(18, inmgLinha) 
+	var celulaInmg = Vector2i(inmgCol, inmgLinha) 
 	
 	var inmgPos_mundo = tilemap_layer.map_to_local(celulaInmg) 
 	
@@ -123,3 +160,22 @@ func spawn():
 		inmg.position.y -= 8
 		inmg.z_index = inmgLinha
 		add_child(inmg)
+
+func _on_game_time_timeout():
+	vitoria()
+
+func vitoria():
+	if not jogo_ativo:
+		return
+	jogo_ativo = false
+	get_tree().paused = true
+	if hud:
+		hud.tela_vitoria()
+
+func derrota():
+	if not jogo_ativo:
+		return
+	jogo_ativo = false
+	get_tree().paused = true
+	if hud:
+		hud.tela_derrota()

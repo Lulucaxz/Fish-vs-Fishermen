@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://s7dcqdlyv0i2"]
+
+[ext_resource type="Texture2D" uid="uid://hpou54udshop" path="res://assets/tartaruga).png" id="1_820fy"]
+[ext_resource type="Script" uid="uid://dx02h574v3fob" path="res://scripts/tartaruga.gd" id="1_hueep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hueep"]
+atlas = ExtResource("1_820fy")
+region = Rect2(1024, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6rli"]
+atlas = ExtResource("1_820fy")
+region = Rect2(512, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qxy4"]
+atlas = ExtResource("1_820fy")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w7dx"]
+atlas = ExtResource("1_820fy")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3x5w"]
+atlas = ExtResource("1_820fy")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwuyk"]
+atlas = ExtResource("1_820fy")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imgux"]
+atlas = ExtResource("1_820fy")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bxp"]
+atlas = ExtResource("1_820fy")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcs7"]
+atlas = ExtResource("1_820fy")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvpf8"]
+atlas = ExtResource("1_820fy")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qqq0"]
+atlas = ExtResource("1_820fy")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t61cc"]
+atlas = ExtResource("1_820fy")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iwk7"]
+atlas = ExtResource("1_820fy")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mo2aj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hueep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6rli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qxy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w7dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3x5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwuyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imgux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqcs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvpf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qqq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t61cc")
+}],
+"loop": true,
+"name": &"tartaruga_tank",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iwk7")
+}],
+"loop": true,
+"name": &"tartura_idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hueep"]
+radius = 16.0
+
+[node name="Tartaruga" type="CharacterBody2D"]
+script = ExtResource("1_hueep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.105, 0.105)
+sprite_frames = SubResource("SpriteFrames_mo2aj")
+animation = &"tartaruga_tank"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_hueep")

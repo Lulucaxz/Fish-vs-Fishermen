@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@export var vida: int = 200
+@export var vida: int = 250
 @export var dano: int = 25
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mapa = get_tree().get_root().find_child("Mapa1", true, false)
 
-var speed: int = 8
+var speed: int = 6
 var inmgBase_pos = Vector2i()
 
 var tempoAttack: float = 0.0
@@ -26,6 +26,13 @@ func atacar(alvo):
 
 func receber_dano(dano_cavalo):
 	vida -= dano_cavalo
+	
+	modulate = Color(1.0, 0.266, 0.277, 1.0) 
+		 
+	await get_tree().create_timer(0.3).timeout 
+		
+	modulate = Color(1, 1 , 1)
+	
 	if vida <= 0:
 		morte()
 		
@@ -39,16 +46,13 @@ func _process(delta):
 	var celula_esquerda = Vector2i(inmgBase_pos.x, inmgBase_pos.y)
 	var planta_alvo = null
 
-	for c in mapa.cavalos:
-		var celula_cavalo = mapa.tilemap_layer.local_to_map(c["pos"])
-		if celula_cavalo == celula_esquerda:
-			planta_alvo = c['node']
-			break
-
-	for p in mapa.plantas:
-		var celula_planta = mapa.tilemap_layer.local_to_map(p["pos"])
-		if celula_planta == celula_esquerda:
-			planta_alvo = p['node']
+	for grupo in [mapa.tartarugas, mapa.baiacus, mapa.cavalos, mapa.plantas, mapa.brigoes]:
+		for item in grupo:
+			var planta_pos = item["pos"]
+			if planta_pos.distance_to(position) < 10:  
+				planta_alvo = item["node"]
+				break
+		if planta_alvo:
 			break
 
 	if planta_alvo and is_instance_valid(planta_alvo):
@@ -62,5 +66,5 @@ func _process(delta):
 			position.x -= speed * delta
 			anim.play("pescador_walk")
 		else:
-			position.x = position.x
+			mapa.derrota()
 			morte()

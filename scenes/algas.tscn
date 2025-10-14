@@ -120,6 +120,7 @@ animations = [{
 }]
 
 [node name="Algas" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_cdl8a")
 recarga = 10.0
 

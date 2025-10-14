@@ -172,7 +172,6 @@ texture_region_size = Vector2i(22, 22)
 17:8/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ktdn"]
-load_path = "res://.godot/imported/tile-claro.svg-7fa536bf9fad28c8316c140de1e301d6.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sj7qr"]
 texture = SubResource("CompressedTexture2D_1ktdn")
@@ -3750,7 +3749,6 @@ texture = SubResource("CompressedTexture2D_u1pg8")
 43:36/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mau8h"]
-load_path = "res://.godot/imported/tile-escuro.svg-f2c225ba30699c82aea940a5776f7e0c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5d2sy"]
 texture = SubResource("CompressedTexture2D_mau8h")
@@ -5601,6 +5599,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="WaveTime" type="Timer" parent="."]
+wait_time = 35.0
 
 [node name="Mapa" type="Sprite2D" parent="."]
 z_index = -1
@@ -5618,4 +5617,8 @@ position = Vector2(59.499985, 49.641216)
 scale = Vector2(0.21927084, 0.21785408)
 texture = ExtResource("4_hax81")
 
+[node name="GameTime" type="Timer" parent="."]
+
 [connection signal="timeout" from="SpawnTime" to="." method="_on_spawn_time_timeout"]
+[connection signal="timeout" from="WaveTime" to="." method="_on_wave_time_timeout"]
+[connection signal="timeout" from="GameTime" to="." method="_on_game_time_timeout"]

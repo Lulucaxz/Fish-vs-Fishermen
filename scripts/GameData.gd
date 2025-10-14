@@ -1,7 +1,7 @@
 extends Node
 
 # Pontos de Oxigênio (o recurso para gastar)
-var oxygen_points: int = 100
+var oxygen_points: int = 50
 
 # Sinal emitido sempre que os pontos de Oxigênio mudam (para o HUD atualizar)
 signal oxygen_changed(new_value: int)

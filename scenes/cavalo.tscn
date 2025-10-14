@@ -32,7 +32,10 @@ scale = Vector2(0.04752703, 0.04491103)
 sprite_frames = SubResource("SpriteFrames_o14br")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.32499996, -4.7683716e-07)
 scale = Vector2(0.6999999, 0.6999999)
 shape = SubResource("RectangleShape2D_cvx1q")

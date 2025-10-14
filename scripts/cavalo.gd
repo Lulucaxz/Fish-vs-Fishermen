@@ -44,6 +44,13 @@ func _on_timeratack_timeout() -> void:
 
 func tomar_dano(dano):
 		vida -= dano
+		
+		modulate = Color(1.0, 0.266, 0.277, 1.0) 
+		 
+		await get_tree().create_timer(0.3).timeout 
+		
+		modulate = Color(1, 1 , 1)
+		
 		if vida <= 0:
 			morrer()
 			

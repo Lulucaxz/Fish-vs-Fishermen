@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://5xkqgfgr5igg"]
+
+[ext_resource type="Texture2D" uid="uid://badrgieptf3es" path="res://assets/ourico.png" id="1_3gxys"]
+[ext_resource type="Script" uid="uid://lgb6dxj7o8at" path="res://scripts/ourico.gd" id="1_6ibn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ibn0"]
+
+[node name="Ourico" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_6ibn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.032, 0.032)
+texture = ExtResource("1_3gxys")
+
+[node name="ouricoColisao" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ouricoColisao"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_6ibn0")
+
+[connection signal="body_entered" from="ouricoColisao" to="." method="_on_ourico_colisao_body_entered"]
+[connection signal="body_exited" from="ouricoColisao" to="." method="_on_ourico_colisao_body_exited"]

@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0m3n8t1m664f"]
+[gd_scene load_steps=13 format=3 uid="uid://b0m3n8t1m664f"]
 
 [ext_resource type="Script" uid="uid://c3b7jhiaf1t3o" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://bsn2lnixs6tbv" path="res://assets/Icones_HUD/card-algas.png" id="2_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://5316g7jyqarr" path="res://assets/Icones_HUD/card-cavalo.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://cxu0gi3y6kod1" path="res://assets/ourico-card.png" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://cmbutf2775o5k" path="res://assets/icon_oxigenio.png" id="4_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://c6as60xf7huct" path="res://assets/card-tartaruga.png" id="5_0m4u7"]
+[ext_resource type="FontFile" uid="uid://b2ognuo2l0i44" path="res://assets/fonts/PixelOperatorHB.ttf" id="5_5pdws"]
+[ext_resource type="Texture2D" uid="uid://bhhdjuaiqye26" path="res://assets/baiacu-card.png" id="5_mphia"]
+[ext_resource type="Texture2D" uid="uid://mu2xcfmv6ib7" path="res://assets/card-brigao.png" id="6_apjy4"]
+[ext_resource type="Script" uid="uid://oirb7eciajh7" path="res://scripts/jogar_btn.gd" id="6_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://d26vovpopw0wj" path="res://assets/images/hover-image.png" id="7_0i1j5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fi6k"]
+font_size = 65
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_oo0fn")
@@ -54,32 +64,56 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta2"]
-position = Vector2(6, 9.325562)
+position = Vector2(5.8859615, 9.528297)
 rotation = 4.712389
-scale = Vector2(0.036634624, 0.036634628)
+scale = Vector2(0.03642344, 0.036423445)
 texture = ExtResource("3_5ysmq")
 
 [node name="BtnPlanta3" type="Button" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta3"]
+position = Vector2(6.2222214, 9.547791)
+rotation = 4.712389
+scale = Vector2(0.10618008, 0.10618009)
+texture = ExtResource("4_0i1j5")
+
 [node name="BtnPlanta4" type="Button" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta4"]
+position = Vector2(6.452484, 9.705933)
+rotation = 4.712389
+scale = Vector2(0.10639717, 0.10639717)
+texture = ExtResource("5_0m4u7")
 
 [node name="BtnPlanta5" type="Button" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta5"]
+position = Vector2(6.6666718, 9.7699585)
+rotation = 4.712389
+scale = Vector2(0.10628291, 0.10628293)
+texture = ExtResource("6_apjy4")
+
 [node name="BtnPlanta6" type="Button" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/BtnPlanta6"]
+position = Vector2(8.666664, 11.1032715)
+rotation = -1.5707964
+scale = Vector2(0.107218005, 0.10721803)
+texture = ExtResource("5_mphia")
 
 [node name="OxygenLabel" type="Label" parent="."]
 z_index = 7
 offset_left = 60.0
 offset_top = 18.0
-offset_right = 114.0
+offset_right = 100.0
 offset_bottom = 41.0
 text = "0"
 horizontal_alignment = 2
@@ -89,4 +123,46 @@ z_index = -1
 position = Vector2(18.999985, 11.9999695)
 scale = Vector2(0.28133333, 0.28133333)
 texture = ExtResource("4_6fi6k")
-offset = Vector2(-20, 0)
+
+[node name="EndGame" type="ColorRect" parent="."]
+visible = false
+z_index = 20
+offset_right = 1200.0
+offset_bottom = 700.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.92156863)
+
+[node name="EndGame_label" type="Label" parent="EndGame"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 700.0
+text = "aaaa"
+label_settings = SubResource("LabelSettings_6fi6k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_menu" type="Button" parent="EndGame"]
+z_index = 100
+layout_mode = 1
+anchors_preset = -1
+offset_left = 508.0
+offset_top = 429.0
+offset_right = 695.0
+offset_bottom = 496.0
+theme_override_fonts/font = ExtResource("5_5pdws")
+theme_override_font_sizes/font_size = 45
+text = "MENU"
+flat = true
+script = ExtResource("6_hd3ao")
+
+[node name="HoverImage" type="TextureRect" parent="EndGame/btn_menu"]
+visible = false
+z_index = 20
+layout_mode = 0
+offset_left = -44.0
+offset_top = 8.0
+offset_right = 236.0
+offset_bottom = 110.0
+texture = ExtResource("7_0i1j5")
+
+[connection signal="pressed" from="EndGame/btn_menu" to="." method="_on_btn_menu_pressed"]
