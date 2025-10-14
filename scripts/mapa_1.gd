@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var waveLimit: int = 10
-@export var tempo_total: float = 150.0
+@export var tempo_total: float = 120.0
 
 @onready var tilemap_layer: TileMapLayer = $TileMap/TileMapLayer
 @onready var hud = get_tree().get_root().find_child("HUD", true, false)
@@ -168,14 +168,10 @@ func vitoria():
 	if not jogo_ativo:
 		return
 	jogo_ativo = false
-	get_tree().paused = true
-	if hud:
-		hud.tela_vitoria()
+	get_tree().change_scene_to_file("res://scenes/tela_vitoria.tscn")
 
 func derrota():
 	if not jogo_ativo:
 		return
 	jogo_ativo = false
-	get_tree().paused = true
-	if hud:
-		hud.tela_derrota()
+	get_tree().change_scene_to_file("res://scenes/tela_endgame.tscn")
