@@ -5599,7 +5599,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="WaveTime" type="Timer" parent="."]
-wait_time = 35.0
+wait_time = 2.0
 
 [node name="Mapa" type="Sprite2D" parent="."]
 z_index = -1

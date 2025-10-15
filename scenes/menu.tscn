@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://c2eky42dvaq1w"]
 
 [ext_resource type="Script" uid="uid://dcur6e72oq2as" path="res://scripts/control.gd" id="1_7x0rv"]
-[ext_resource type="Texture2D" uid="uid://cvbodra26hy3w" path="res://assets/images/bg-fundo.png" id="2_hf8s8"]
-[ext_resource type="Texture2D" uid="uid://bj0jsdogu2jwp" path="res://assets/images/bg-direita.png" id="3_6htpv"]
-[ext_resource type="Texture2D" uid="uid://dn8xcib8wewoa" path="res://assets/images/bg-esquerda.png" id="4_4y3de"]
-[ext_resource type="Texture2D" uid="uid://vuigq6ilfqyr" path="res://assets/images/game_logo2.png" id="5_5r0n6"]
-[ext_resource type="FontFile" uid="uid://b2ognuo2l0i44" path="res://assets/fonts/PixelOperatorHB.ttf" id="6_ixg1r"]
+[ext_resource type="Texture2D" uid="uid://buhhishxwgt41" path="res://assets/images/bg-fundo.png" id="2_hf8s8"]
+[ext_resource type="Texture2D" uid="uid://chjxk3md6blgv" path="res://assets/images/bg-direita.png" id="3_6htpv"]
+[ext_resource type="Texture2D" uid="uid://c1v35c6y7cutr" path="res://assets/images/bg-esquerda.png" id="4_4y3de"]
+[ext_resource type="Texture2D" uid="uid://cvt8yibiisfrd" path="res://assets/images/game_logo2.png" id="5_5r0n6"]
+[ext_resource type="FontFile" uid="uid://b5hcl4o47gq51" path="res://assets/fonts/PixelOperatorHB.ttf" id="6_ixg1r"]
 [ext_resource type="Script" uid="uid://oirb7eciajh7" path="res://scripts/jogar_btn.gd" id="7_kbnhp"]
-[ext_resource type="Texture2D" uid="uid://d26vovpopw0wj" path="res://assets/images/hover-image.png" id="8_pex5u"]
+[ext_resource type="Texture2D" uid="uid://o0u3rsbeogec" path="res://assets/images/hover-image.png" id="8_pex5u"]
 
 [sub_resource type="Animation" id="Animation_fj5cn"]
 length = 1.3

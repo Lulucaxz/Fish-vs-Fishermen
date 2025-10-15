@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://36gwr8eyn8c7"]
+[gd_scene load_steps=4 format=3 uid="uid://36gwr8eyn8c7"]
 
 [ext_resource type="PackedScene" uid="uid://c8wf57fusxq2" path="res://scenes/mapa_1.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b0m3n8t1m664f" path="res://scenes/hud.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dg15idcodi38x" path="res://scenes/selecaoPeixe.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("2_jyhfs")]
 
 [node name="Mapa1" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="SelecaoPeixe" parent="." instance=ExtResource("3_sugp2")]
