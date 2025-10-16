@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg15idcodi38x"]
+[gd_scene load_steps=14 format=3 uid="uid://dg15idcodi38x"]
 
 [ext_resource type="Script" uid="uid://qv3b4brxdwfc" path="res://scripts/selecao.gd" id="1_buwe3"]
 [ext_resource type="FontFile" uid="uid://b5hcl4o47gq51" path="res://assets/fonts/PixelOperatorHB.ttf" id="1_d0mi1"]
+[ext_resource type="Texture2D" uid="uid://bsn2lnixs6tbv" path="res://assets/Icones_HUD/card-algas.png" id="3_su64s"]
+[ext_resource type="Texture2D" uid="uid://5316g7jyqarr" path="res://assets/Icones_HUD/card-cavalo.png" id="4_wljg4"]
+[ext_resource type="Texture2D" uid="uid://cxu0gi3y6kod1" path="res://assets/ourico-card.png" id="5_ni4j2"]
+[ext_resource type="Texture2D" uid="uid://c6as60xf7huct" path="res://assets/card-tartaruga.png" id="6_fau3w"]
+[ext_resource type="Texture2D" uid="uid://mu2xcfmv6ib7" path="res://assets/card-brigao.png" id="7_7qoud"]
+[ext_resource type="Texture2D" uid="uid://bhhdjuaiqye26" path="res://assets/baiacu-card.png" id="8_bguf1"]
+[ext_resource type="Texture2D" uid="uid://c1trc7aydhm4c" path="res://assets/pxboi-card.png" id="9_2hut6"]
+[ext_resource type="Texture2D" uid="uid://do4iiv1hdmrfn" path="res://assets/pinguim-card.png" id="10_b4vrl"]
+[ext_resource type="Texture2D" uid="uid://bf8xrp2dddcyc" path="res://assets/lagosta-card.png" id="11_1ucoi"]
+[ext_resource type="Texture2D" uid="uid://t00qt4ywx3y4" path="res://assets/estrela-card.png" id="12_hxpnd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2r80"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="SelecaoPeixe" type="CanvasLayer"]
 process_mode = 3
@@ -16,6 +38,40 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="LastRowContainer" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -162.0
+offset_right = 144.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BtnPlanta10" type="Button" parent="LastRowContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LastRowContainer/BtnPlanta10"]
+position = Vector2(104.11444, 53.305763)
+rotation = 6.2831855
+scale = Vector2(0.23431522, 0.23739631)
+texture = ExtResource("12_hxpnd")
+
 [node name="ChooseContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -23,27 +79,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -333.5
-offset_top = -269.0
+offset_top = -336.0
 offset_right = 333.5
-offset_bottom = 269.0
+offset_bottom = -275.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="ChooseContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_d0mi1")
 theme_override_font_sizes/font_size = 60
 text = "CHOOSE YOUR CHARACTERS"
 horizontal_alignment = 1
 
 [node name="ReadyContainer" type="VBoxContainer" parent="."]
+z_index = 5
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 77.0
+offset_left = 97.0
 offset_top = -63.0
-offset_right = -54.0
+offset_right = -52.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -53,5 +113,261 @@ size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("1_d0mi1")
 theme_override_font_sizes/font_size = 25
 text = "READY"
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+offset_left = 23.0
+offset_top = 92.0
+offset_right = 1183.0
+offset_bottom = 655.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="EscolhidosContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Slot1" type="Panel" parent="MainContainer/EscolhidosContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2r80")
+
+[node name="peixe-selecionado" type="TextureRect" parent="MainContainer/EscolhidosContainer/Slot1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot2" type="Panel" parent="MainContainer/EscolhidosContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2r80")
+
+[node name="peixe-selecionado" type="TextureRect" parent="MainContainer/EscolhidosContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot3" type="Panel" parent="MainContainer/EscolhidosContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2r80")
+
+[node name="peixe-selecionado" type="TextureRect" parent="MainContainer/EscolhidosContainer/Slot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot4" type="Panel" parent="MainContainer/EscolhidosContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2r80")
+
+[node name="peixe-selecionado" type="TextureRect" parent="MainContainer/EscolhidosContainer/Slot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot5" type="Panel" parent="MainContainer/EscolhidosContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2r80")
+
+[node name="peixe-selecionado" type="TextureRect" parent="MainContainer/EscolhidosContainer/Slot5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot6" type="Panel" parent="MainContainer/EscolhidosContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2r80")
+
+[node name="peixe-selecionado" type="TextureRect" parent="MainContainer/EscolhidosContainer/Slot6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PersonagensContainer" type="GridContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(890, 420)
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 30
+columns = 3
+
+[node name="BtnPlanta1" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta1"]
+position = Vector2(104.11444, 53.305763)
+rotation = 6.2831855
+scale = Vector2(0.23431522, 0.23739631)
+texture = ExtResource("3_su64s")
+
+[node name="BtnPlanta2" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta2"]
+position = Vector2(109.557205, 49.502632)
+rotation = 6.2831855
+scale = Vector2(0.23177283, 0.23938157)
+texture = ExtResource("4_wljg4")
+
+[node name="BtnPlanta3" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta3"]
+position = Vector2(106.964066, 49)
+rotation = 6.2831855
+scale = Vector2(0.6666844, 0.67880446)
+texture = ExtResource("5_ni4j2")
+
+[node name="BtnPlanta4" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta4"]
+position = Vector2(103.88555, 49.223877)
+rotation = 6.2831855
+scale = Vector2(0.6839221, 0.69065714)
+texture = ExtResource("6_fau3w")
+
+[node name="BtnPlanta5" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta5"]
+position = Vector2(112.58437, 50.43781)
+rotation = 6.2831855
+scale = Vector2(0.7064764, 0.6995068)
+texture = ExtResource("7_7qoud")
+
+[node name="BtnPlanta6" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta6"]
+position = Vector2(99.70087, 62.858204)
+rotation = 6.2831855
+scale = Vector2(0.6666752, 0.6999713)
+texture = ExtResource("8_bguf1")
+
+[node name="BtnPlanta7" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta7"]
+position = Vector2(104.11444, 53.305763)
+rotation = 6.2831855
+scale = Vector2(0.23431522, 0.23739631)
+texture = ExtResource("9_2hut6")
+
+[node name="BtnPlanta8" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta8"]
+position = Vector2(104.11444, 53.305763)
+rotation = 6.2831855
+scale = Vector2(0.23431522, 0.23739631)
+texture = ExtResource("10_b4vrl")
+
+[node name="BtnPlanta9" type="Button" parent="MainContainer/PersonagensContainer"]
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MainContainer/PersonagensContainer/BtnPlanta9"]
+position = Vector2(104.11444, 53.305763)
+rotation = 6.2831855
+scale = Vector2(0.23431522, 0.23739631)
+texture = ExtResource("11_1ucoi")
 
 [connection signal="pressed" from="ReadyContainer/ready_btn" to="." method="_on_ready_btn_pressed"]
