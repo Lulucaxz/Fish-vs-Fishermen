@@ -6,6 +6,15 @@ var oxygen_points: int = 50000
 # Sinal emitido sempre que os pontos de Oxigênio mudam (para o HUD atualizar)
 signal oxygen_changed(new_value: int)
 
+# --- NOVO: ARMAZENAMENTO DA SELEÇÃO ---
+# (Isto estava faltando no seu arquivo )
+# Mapeia o slot do HUD (1-6) para o caminho da CENA (.tscn) do personagem
+var selected_characters_paths: Dictionary = {}
+# Mapeia o slot do HUD (1-6) para o caminho da TEXTURA (.png) do card
+var selected_characters_textures: Dictionary = {}
+# --- FIM NOVO ---
+
+
 # Função para adicionar Oxigênio
 func add_oxygen(amount: int):
 	oxygen_points += amount
