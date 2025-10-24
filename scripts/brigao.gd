@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var custo: int = 75
 @export var vida: int = 150
-@export var danoBrigao: int = 35
+@export var danoBrigao: int = 30
 @export var intervalo_ataque: float = 1.0
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D

@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var vida: int = 250
-@export var dano: int = 45
+@export var dano: int = 40
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mapa = get_tree().get_root().find_child("Mapa1", true, false)
 
-var speed: int = 5
+var speed: int = 6
 var inmgIsopor_pos = Vector2i(0, 0)
 
 var tempoAttack: float = 0.0

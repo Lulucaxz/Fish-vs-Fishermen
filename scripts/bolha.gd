@@ -5,7 +5,7 @@ extends Area2D
 # Velocidade de movimento em pixels por segundo.
 @export var velocidade: int = 600
 # Dano que esta bolha causa.
-@export var dano: int = 30
+@export var dano: int = 15
 # --- FUNÇÕES NATIVAS ---
 
 # Chamada a cada frame para mover o projétil

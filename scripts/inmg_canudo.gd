@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mapa = get_tree().get_root().find_child("Mapa1", true, false)
 
-var speed: int = 12
+var speed: int = 13
 var inmgCanudo_pos = Vector2i()
 
 var tempoAttack: float = 0.0

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var vida: int = 400
-@export var dano: int = 35
+@export var vida: int = 500
+@export var dano: int = 45
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mapa = get_tree().get_root().find_child("Mapa1", true, false)

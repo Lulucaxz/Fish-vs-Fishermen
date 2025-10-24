@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var custo: int = 125
 @export var vida: int = 125
 @export var dano: int = 15
-@export var intervalo_ataque: float = 0.5
+@export var intervalo_ataque: float = 0.75
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mapa = get_tree().get_root().find_child("Mapa1", true, false)

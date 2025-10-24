@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var vida: int = 250
+@export var vida: int = 275
 @export var dano: int = 25
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -10,7 +10,7 @@ var current_speed: float = 0.0      # Velocidade que ele está usando agora
 var is_slowed: bool = false            # Flag para saber se está lento
 @onready var slow_timer = $SlowTimer
 
-var speed: float = 6.0
+var speed: float = 7.0
 var inmgBase_pos = Vector2i()
 
 var tempoAttack: float = 0.0

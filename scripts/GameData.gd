@@ -31,3 +31,11 @@ func spend_oxygen(amount: int) -> bool:
 	else:
 		# print("Oxigênio insuficiente!")
 		return false # Gasto falhou
+		
+func reset_game_state():
+	oxygen_points = 50
+	selected_characters_paths.clear()
+	selected_characters_textures.clear()
+	# Emitimos o sinal para garantir que qualquer UI no menu
+	# mostre o valor 50 (se houver um label de oxigênio lá)
+	emit_signal("oxygen_changed", oxygen_points)
