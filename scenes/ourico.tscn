@@ -20,5 +20,9 @@ collision_mask = 2
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_6ibn0")
 
+[node name="TimerAutodestruicao" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="ouricoColisao" to="." method="_on_ourico_colisao_body_entered"]
 [connection signal="body_exited" from="ouricoColisao" to="." method="_on_ourico_colisao_body_exited"]
+[connection signal="timeout" from="TimerAutodestruicao" to="." method="_on_timer_autodestruicao_timeout"]

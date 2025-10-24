@@ -137,7 +137,7 @@ collision_layer = 2
 script = ExtResource("1_u2obx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_y8gs8")
 animation = &"barril_walk"
 frame_progress = 0.05159831

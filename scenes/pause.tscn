@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0fmje46p04hc"]
+
+[ext_resource type="FontFile" uid="uid://b5hcl4o47gq51" path="res://assets/fonts/PixelOperatorHB.ttf" id="1_f1d2v"]
+[ext_resource type="Script" uid="uid://cn8emo1es6x82" path="res://scripts/pause.gd" id="1_m0klm"]
+[ext_resource type="Texture2D" uid="uid://b3kjpnwnuwb8" path="res://assets/bg-endgame.png" id="1_r8yp4"]
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_m0klm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.29803923)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.4509804)
+position = Vector2(600.2777, 351.74997)
+scale = Vector2(0.623669, 0.6523148)
+texture = ExtResource("1_r8yp4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.5
+offset_top = -200.5
+offset_right = 299.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f1d2v")
+theme_override_font_sizes/font_size = 130
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="BtnContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="resume_btn" type="Button" parent="VBoxContainer/BtnContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f1d2v")
+theme_override_font_sizes/font_size = 45
+text = "CONTINUAR"
+flat = true
+
+[node name="quit_btn" type="Button" parent="VBoxContainer/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("1_f1d2v")
+theme_override_font_sizes/font_size = 45
+text = "SAIR"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/BtnContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
