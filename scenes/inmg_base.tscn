@@ -133,3 +133,7 @@ speed_scale = 0.8
 position = Vector2(-2.3841858e-07, 3.5)
 scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_ha7je")
+
+[node name="SlowTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SlowTimer" to="." method="_on_SlowTimer_timeout"]

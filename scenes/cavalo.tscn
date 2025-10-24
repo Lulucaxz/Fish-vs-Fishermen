@@ -1,18 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://hbrhi1l1knb3"]
+[gd_scene load_steps=13 format=3 uid="uid://hbrhi1l1knb3"]
 
 [ext_resource type="Script" uid="uid://3akno55lt5l2" path="res://scripts/cavalo.gd" id="1_qn4w6"]
 [ext_resource type="PackedScene" uid="uid://dv5c4wco83osg" path="res://scenes/bolha.tscn" id="2_cvx1q"]
-[ext_resource type="Texture2D" uid="uid://btk03mv312w4o" path="res://assets/cavalo-marinho.png" id="3_cvx1q"]
+[ext_resource type="Texture2D" uid="uid://ctfiedbbe0bm0" path="res://assets/idle cavalo marinho/_a_1_128-removebg-preview (2).png" id="3_55jol"]
+[ext_resource type="Texture2D" uid="uid://bgsk4q3mfhi73" path="res://assets/idle cavalo marinho/_a_1_128-removebg-preview (3).png" id="4_www5s"]
+[ext_resource type="Texture2D" uid="uid://krl8cclx0k8g" path="res://assets/idle cavalo marinho/_a_3_128-removebg-preview (1).png" id="5_ndabh"]
+[ext_resource type="Texture2D" uid="uid://de567jglyfefj" path="res://assets/idle cavalo marinho/_a_4_128-removebg-preview (1).png" id="6_kjubq"]
+[ext_resource type="Texture2D" uid="uid://lncr3qtqg6u6" path="res://assets/idle cavalo marinho/_a_5_128-removebg-preview (1).png" id="7_q5ht8"]
+[ext_resource type="Texture2D" uid="uid://dai7wtwyn3q3k" path="res://assets/idle cavalo marinho/_a_63_128-removebg-preview (1).png" id="8_0r6o1"]
+[ext_resource type="Texture2D" uid="uid://dkph1xji2goc4" path="res://assets/idle cavalo marinho/_a_65_128-removebg-preview (1).png" id="9_h650p"]
+[ext_resource type="Texture2D" uid="uid://ce8vafehh0dut" path="res://assets/idle cavalo marinho/_a_65_128-removebg-preview.png" id="10_ysyhj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o14br"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_cvx1q")
+"texture": ExtResource("3_55jol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_www5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ndabh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kjubq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q5ht8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0r6o1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h650p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ysyhj")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvx1q"]
@@ -31,6 +59,7 @@ position = Vector2(1.1920929e-07, -2)
 scale = Vector2(0.04752703, 0.04491103)
 sprite_frames = SubResource("SpriteFrames_o14br")
 animation = &"idle"
+frame_progress = 0.645609
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2

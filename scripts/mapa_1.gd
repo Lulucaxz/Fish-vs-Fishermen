@@ -25,7 +25,7 @@ var spawned_this_wave: int = 0
 var jogo_ativo: bool = true
 var planta_selecionada_id: int = -1 
 var is_removing: bool = false 
-
+	
 var plantas_paths: Dictionary = {}
 
 var plantas: Array = []
@@ -35,6 +35,8 @@ var ouricos: Array = []
 var brigoes: Array = []
 var tartarugas: Array = []
 var pxBois: Array = []
+var pinguins: Array = []
+var lagostas: Array = []
 
 var inmgPos_linha: int = 6
 var inmgPos_col: int = 16
@@ -107,9 +109,14 @@ func finalizar_wave():
 	spawn_ativo = false
 	spawnTime.stop()
 	print("Wave %d finalizada!" % wave_atual)
+	
+	# Verifica se ainda há waves restantes
 	if wave_atual < total_waves:
+		# Se sim, inicia o timer para a próxima wave
 		waveTime.start()
-	elif wave_atual < total_waves and inimigos_vivos.is_empty():
+	# Se esta FOI a última wave (e sabemos que inimigos_vivos está vazio)
+	elif wave_atual == total_waves:
+		# Chama a vitória, pois o jogo acabou!
 		vitoria()
 
 func _on_modo_remocao_ativado() -> void:
@@ -178,6 +185,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		var planta = planta_scene.instantiate()
 		add_child(planta)
 		planta.position = world_pos
+		
+		#Conecta o sinal 'morreu' do peixe à função de remoção
+		if planta.has_signal("morreu"):
+			# O .bind(planta) é crucial para passar a referência do peixe
+			planta.morreu.connect(remove_plant_from_tracking.bind(planta))
+		else:
+			push_warning("A cena " + path + " não tem o sinal 'morreu'!")
 
 		var planta_data = {
 			'pos': world_pos,
@@ -198,6 +212,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			baiacus.append(planta_data)
 		elif "pxboi.tscn" in path:
 			pxBois.append(planta_data)
+		elif "lagosta-boxeadora.tscn" in path:
+			lagostas.append(planta_data)
+		elif "pinguim.tscn" in path:
+			pinguins.append(planta_data)
 		else:
 			plantas.append(planta_data) 
 			push_warning("Tipo de planta não rastreado: " + path)
@@ -223,7 +241,7 @@ func apply_poison_dps(target: Node2D, damage: int, duration: float, interval: fl
 		target.modulate = Color.WHITE
 
 func handle_plant_removal(target_cell: Vector2i) -> void:
-	var all_units = plantas + cavalos + baiacus + ouricos + brigoes + tartarugas
+	var all_units = plantas + cavalos + baiacus + ouricos + brigoes + tartarugas + pxBois
 	var removed_successfully = false
 
 	for unit_data in all_units:

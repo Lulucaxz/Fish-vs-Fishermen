@@ -45,16 +45,12 @@ var character_data_map: Dictionary = {
         "texture": "res://assets/pxboi-card.png"
     },
     "BtnPlanta8": {
-        "scene": "", 
+        "scene": "res://scenes/pinguim.tscn", 
         "texture": "res://assets/pinguim-card.png"
     },
     "BtnPlanta9": {
-        "scene": "res://scenes/lagosta.tscn", 
+        "scene": "res://scenes/lagosta-boxeadora.tscn", 
         "texture": "res://assets/lagosta-card.png"
-    },
-    "BtnPlanta10": {
-        "scene": "res://scenes/estrela.tscn", 
-        "texture": "res://assets/estrela-card.png"
     }
 }
 
@@ -73,10 +69,6 @@ func _ready() -> void:
     for child in personagens_container.get_children():
         if child is Button:
             child.pressed.connect(_on_character_button_pressed.bind(child))
-    
-    var btn10 = last_row_container.get_node("BtnPlanta10")
-    if btn10:
-        btn10.pressed.connect(_on_character_button_pressed.bind(btn10))
         
     for i in range(1, 7):
         var slot_panel = escolhidos_container.get_node("Slot" + str(i))

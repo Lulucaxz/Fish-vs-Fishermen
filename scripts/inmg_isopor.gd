@@ -47,7 +47,7 @@ func _process(delta):
 	var celula_esquerda = Vector2i(inmgIsopor_pos.x, inmgIsopor_pos.y)
 	var planta_alvo = null
 
-	for grupo in [mapa.tartarugas, mapa.baiacus, mapa.cavalos, mapa.plantas, mapa.brigoes]:
+	for grupo in [mapa.tartarugas, mapa.baiacus, mapa.cavalos, mapa.plantas, mapa.brigoes, mapa.pxBois, mapa.pinguins, mapa.lagostas]:
 		for item in grupo:
 			var planta_pos = item["pos"]
 			if planta_pos.distance_to(position) < 10:  

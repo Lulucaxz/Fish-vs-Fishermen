@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnwjx3focjbk"]
+
+[ext_resource type="Script" uid="uid://di0lgxl41082u" path="res://scripts/lagosta_boxeadora.gd" id="1_vorrb"]
+[ext_resource type="Texture2D" uid="uid://by5hj7pgfsm7k" path="res://assets/lagosta-boxeadora-idle.png" id="2_4c1pv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggah3"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi68s"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjne2"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_207cm"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev7fw"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqbmc"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qxb3"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2x48"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k42y"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf8o7"]
+atlas = ExtResource("2_4c1pv")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xssph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggah3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi68s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjne2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_207cm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev7fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqbmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qxb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2x48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k42y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf8o7")
+}],
+"loop": true,
+"name": &"lagosta_idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ior3"]
+size = Vector2(12, 16)
+
+[node name="LagostaBoxeadora" type="CharacterBody2D"]
+scale = Vector2(-1, 1)
+script = ExtResource("1_vorrb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.104, 0.104)
+sprite_frames = SubResource("SpriteFrames_xssph")
+animation = &"lagosta_idle"
+frame_progress = 0.3494111
+
+[node name="lagostaColisao" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lagostaColisao"]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_7ior3")
+
+[connection signal="body_entered" from="lagostaColisao" to="." method="_on_lagosta_colisao_body_entered"]
+[connection signal="body_exited" from="lagostaColisao" to="." method="_on_lagosta_colisao_body_exited"]

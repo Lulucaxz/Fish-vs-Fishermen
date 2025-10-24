@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var custo: int = 200
+@export var custo: int = 250
 @export var vida: int = 250
 @export var danoPxboi: int = 70
 @export var intervalo_ataque: float = 1.0
@@ -50,7 +50,7 @@ func _on_pxboi_colisao_body_exited(body: Node2D) -> void:
 func _loop_ataque_continuo() -> void:
 	while atacando and vida > 0 and inimigo_em_contato:
 		if inimigo_em_contato and inimigo_em_contato.has_method("receber_dano"):
-			anim.play("pxboi_attack")
+			anim.play("pxboi_idle")
 			
 			inimigo_em_contato.receber_dano(danoPxboi)
 			

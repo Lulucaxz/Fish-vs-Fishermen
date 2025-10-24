@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dg15idcodi38x"]
+[gd_scene load_steps=13 format=3 uid="uid://dg15idcodi38x"]
 
 [ext_resource type="Script" uid="uid://qv3b4brxdwfc" path="res://scripts/selecao.gd" id="1_buwe3"]
 [ext_resource type="FontFile" uid="uid://b5hcl4o47gq51" path="res://assets/fonts/PixelOperatorHB.ttf" id="1_d0mi1"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c1trc7aydhm4c" path="res://assets/pxboi-card.png" id="9_2hut6"]
 [ext_resource type="Texture2D" uid="uid://do4iiv1hdmrfn" path="res://assets/pinguim-card.png" id="10_b4vrl"]
 [ext_resource type="Texture2D" uid="uid://bf8xrp2dddcyc" path="res://assets/lagosta-card.png" id="11_1ucoi"]
-[ext_resource type="Texture2D" uid="uid://t00qt4ywx3y4" path="res://assets/estrela-card.png" id="12_hxpnd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2r80"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -37,40 +36,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="LastRowContainer" type="HBoxContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -162.0
-offset_right = 144.0
-offset_bottom = -42.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 6
-size_flags_vertical = 4
-alignment = 1
-
-[node name="BtnPlanta10" type="Button" parent="LastRowContainer"]
-custom_minimum_size = Vector2(200, 120)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
-theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
-icon_alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="LastRowContainer/BtnPlanta10"]
-position = Vector2(104.11444, 53.305763)
-rotation = 6.2831855
-scale = Vector2(0.23431522, 0.23739631)
-texture = ExtResource("12_hxpnd")
 
 [node name="ChooseContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8

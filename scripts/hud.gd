@@ -20,7 +20,7 @@ var texture_rect_child_name = "TextureRect" # <--- VERIFIQUE ESTE NOME
 # --- FIM DOS AJUSTES ---
 
 # Define o tamanho fixo que queremos para os nossos cards
-var fixed_card_size = Vector2(30, 16) # <- Ajuste este valor se precisar
+var fixed_card_size = Vector2(25, 16) # <- Ajuste este valor se precisar
 
 var card_buttons: Array = [] # Array para guardar os nós dos botões
 
